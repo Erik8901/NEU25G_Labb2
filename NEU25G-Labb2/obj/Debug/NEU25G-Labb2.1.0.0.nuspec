@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NEU25G-Labb2</id>
+    <version>1.0.0</version>
+    <authors>NEU25G-Labb2</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="b3a4a47d9622e3b6058ed7ccfe5e20b7b37dcf82" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\Debug\net8.0\NEU25G-Labb2.runtimeconfig.json" target="lib\net8.0\NEU25G-Labb2.runtimeconfig.json" />
+    <file src="C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\Debug\net8.0\NEU25G-Labb2.dll" target="lib\net8.0\NEU25G-Labb2.dll" />
+  </files>
+</package>
