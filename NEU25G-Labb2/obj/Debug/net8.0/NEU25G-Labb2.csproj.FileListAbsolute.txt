@@ -41,3 +41,4 @@ C:\Users\erikj\Downloads\NEU25G_Labb2\NEU25G-Labb2\obj\Debug\net8.0\refint\NEU25
 C:\Users\erikj\Downloads\NEU25G_Labb2\NEU25G-Labb2\obj\Debug\net8.0\NEU25G-Labb2.pdb
 C:\Users\erikj\Downloads\NEU25G_Labb2\NEU25G-Labb2\obj\Debug\net8.0\NEU25G-Labb2.genruntimeconfig.cache
 C:\Users\erikj\Downloads\NEU25G_Labb2\NEU25G-Labb2\obj\Debug\net8.0\ref\NEU25G-Labb2.dll
+C:\Users\erikj\Downloads\NEU25G_Labb2\NEU25G-Labb2\obj\Debug\net8.0\NEU25G-Labb2.sourcelink.json

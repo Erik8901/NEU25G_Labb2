@@ -1,14 +1,67 @@
-﻿abstract class Enemy : LevelElement
+﻿class Player : LevelElement
 {
-    public string Snake { get; set; }
-    public string Rat { get; set; }
-
-    public string Player { get; set; }
-
-    public double Health { get; set; }
-    public int AttackDice { get; set; }
-    public int DefendDice { get; set; }
+    public Player(int x, int y)
+    {
+        Sign = '@';
+        SignColor = ConsoleColor.Green;
+        PosX = x;
+        PosY = y;
+    }
 }
+
+
+
+
+
+//    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+//    if (keyInfo.Key == ConsoleKey.W)
+//    {
+//        Console.SetCursorPosition(playerStartPosX, playerStartPosY);
+//        Console.Write(' ');
+//        playerStartPosY = Math.Max(0, playerStartPosY - 1);
+
+//        Console.SetCursorPosition(playerStartPosX, playerStartPosY);
+//        Console.Write(player);
+
+
+//    }
+
+
+
+//}
+
+//while (true)
+//{
+
+//    //int playerStartPosX = 4;
+//    //int playerStartPosY = 3;
+//    char player = '@';
+
+//    int startPosX = 4;
+//    int startPosY = 3;
+
+//    int previousPosX = startPosX;
+//    int previousPosY = startPosY;
+
+//    Console.SetCursorPosition(startPosX, startPosY);
+//    Console.Write(player);
+
+//    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+//    if (keyInfo.Key == ConsoleKey.W)
+//    {
+//        startPosY += -1;
+//        //Console.SetCursorPosition(startPosX, startPosY);
+
+//        //Console.Write(player);
+
+
+//    }
+//    else if (keyInfo.Key == ConsoleKey.Escape) {
+//        break;
+//    }
+//}
+
 
 // This example demonstrates the
 //     Console.CursorLeft and
@@ -67,6 +120,7 @@
 
 //    }
 //}
+
 //public static void WriteAt(string s, int x, int y)
 //{
 

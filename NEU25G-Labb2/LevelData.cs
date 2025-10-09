@@ -1,10 +1,9 @@
 ﻿
 
-
-using System.Reflection.PortableExecutable;
-
 internal class LevelData
 {
+    public Player Player { get; private set; }
+    
     private List<LevelElement> _elements = new List<LevelElement>();
     public List<LevelElement> Elements
 	{
@@ -43,11 +42,85 @@ internal class LevelData
                     {
                         _elements.Add(new Rat(i, row));
                     }
-
-
-
-                }
+                    if (currentChar == '@')
+                    {
+                        Player = new Player(i, row);
+                    }
+               }
                 row++;
+            }
+        }
+    }
+    public void PlayerMoveUp()
+    {
+        Console.SetCursorPosition(Player.PosX, Player.PosY);
+        Console.Write(' ');
+        Player.PosY--;
+        Player.Draw();
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+           //if(_elements[i].Sign == 'r') {
+               
+           //     _elements[i].PosX = _elements[i].PosX + 1;
+           // }
+            
+            if (_elements[i].PosY == Player.PosY  && _elements[i].PosX == Player.PosX)
+            {
+                Player.PosY = Player.PosY + 1;
+                //Console.SetCursorPosition(1, 1);
+                //Console.WriteLine(_elements[i].Sign);
+            }
+        }
+    }
+    public void PlayerMoveDown()
+    {
+        Console.SetCursorPosition(Player.PosX, Player.PosY);
+        Console.Write(' ');
+        Player.PosY++;
+        Player.Draw();
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+
+            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            {
+                Player.PosY = Player.PosY - 1;
+            }
+        }
+    }
+    public void PlayerMoveLeft()
+    {
+        Console.SetCursorPosition(Player.PosX, Player.PosY);
+        Console.Write(' ');
+        Player.PosX--;
+        Player.Draw();
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+
+            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            {
+                Player.PosX = Player.PosX + 1;
+            }
+        }
+
+    }
+    public void PlayerMoveRight()
+    {
+        Console.SetCursorPosition(Player.PosX, Player.PosY);
+        Console.Write(' ');
+        Player.PosX++;
+        Player.Draw();
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+
+            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            {
+                Player.PosX = Player.PosX - 1;
+
+                
             }
         }
     }

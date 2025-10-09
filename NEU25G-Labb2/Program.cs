@@ -3,44 +3,52 @@
 LevelData leveldata = new LevelData();
 leveldata.Load();
 
+Player player = leveldata.Player;
+
+var rat = new Rat(0,0);
 //foreach (var element in leveldata.Elements)
 //{
 //    element.Draw();
 //    leveldata.Elements[2].SignColor = ConsoleColor.Green;
 //}
-
-int playerStartPosX = 4;
-int playerStartPosY = 3; 
-char player = '@';
-Console.SetCursorPosition(playerStartPosX, playerStartPosY);
-Console.Write(player);
-
+string startGameText = "Game Started! GLHF!!";
 ConsoleKey key;
 
 do
 {
+    Console.SetCursorPosition(60,0);
+    Console.Write(startGameText);
+
     Console.CursorVisible = false;
+    
     foreach (var element in leveldata.Elements)
     {
         element.Draw();
-        
     }
+
+    player.Draw();
    
     key = Console.ReadKey(true).Key;
     
     if(key == ConsoleKey.W)
     {
-        Console.SetCursorPosition(playerStartPosX, playerStartPosY);
-        Console.Write(' ');
-       
-        playerStartPosY = Math.Max(0, playerStartPosY - 1);
+       leveldata.PlayerMoveUp();
+      //  rat.Update();
+    }
 
-        Console.SetCursorPosition(playerStartPosX, playerStartPosY);
-        Console.Write(player);
-        leveldata.Elements[3].SignColor = ConsoleColor.Black;
-        //leveldata.Elements[2].SignColor = ConsoleColor.Yellow;
-        //leveldata.Elements[1].SignColor = ConsoleColor.Yellow;
-        //leveldata.Elements[0].SignColor = ConsoleColor.Yellow;
+    if(key == ConsoleKey.S)
+    {
+       leveldata.PlayerMoveDown();
+    }
+    
+    if (key == ConsoleKey.A)
+    {
+       leveldata.PlayerMoveLeft();
+    }
+    
+    if (key == ConsoleKey.D)
+    {
+      leveldata.PlayerMoveRight();
     }
 
 } while(key != ConsoleKey.Escape);
