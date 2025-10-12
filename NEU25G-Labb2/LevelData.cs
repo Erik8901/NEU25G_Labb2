@@ -3,12 +3,18 @@ internal class LevelData
 {
     public Player Player { get; private set; }
 
+    private bool inCombat = false;
+   
+    //Enemy Enemy = new Enemy(Rat);
+
     private List<LevelElement> _elements = new List<LevelElement>();
     public List<LevelElement> Elements
     {
         get { return _elements; }
 
     }
+
+    Dice Dice = new Dice(0,0,0);
 
     public void Load()
     {
@@ -52,6 +58,8 @@ internal class LevelData
             }
         }
     }
+
+   
 
     public void ShuffleSnakes()
     {
@@ -164,7 +172,7 @@ internal class LevelData
 public void ShuffleRats()
     {
         var walls = new List<Wall>();
-        var rats = new List<Rat>();
+     //   var rats = new List<Rat>();
         Random rand = new Random();
 
         for (int i = 0; i < _elements.Count; i++)
@@ -174,10 +182,10 @@ public void ShuffleRats()
                 walls.Add((Wall)_elements[i]);
             }
 
-            if (_elements[i].Sign == 'r')
-            {
-                rats.Add((Rat)_elements[i]);
-            }
+            //if (_elements[i].Sign == 'r')
+            //{
+            //    rats.Add((Rat)_elements[i]);
+            //}
         }
 
         for (int i = 0; i < _elements.Count; i++)
@@ -224,24 +232,74 @@ public void ShuffleRats()
         }
     }
 
-    public void PlayerMoveUp()
+    public void TrackPlayerAndEnemiesPos()
     {
-        Console.SetCursorPosition(Player.PosX, Player.PosY);
-        Console.Write(' ');
-        Player.PosY--;
-        Player.Draw();
-
-        ShuffleRats();
-        ShuffleSnakes();
-        
+        int playerHp = 30;
+        int enemyHp = 10;
+       
         for (int i = 0; i < _elements.Count; i++)
         {
 
-            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            if (_elements[i].Sign == 'r')
             {
-                Player.PosY = Player.PosY + 1;
+
+                int distanceX = Player.PosX - _elements[i].PosX;
+                int distanceY = Player.PosY - _elements[i].PosY;
+                if ((Math.Abs(distanceX) <= 1 && Math.Abs(distanceY) <= 1) &&
+                    !(distanceX == 0 && distanceY == 0))
+                {
+                    inCombat = true;
+                    //Console.SetCursorPosition(_elements[i].PosX, _elements[i].PosY);
+                    //Console.Write(' ');
+
+                    //  int currentDistance = Math.Abs(distanceX) + Math.Abs(distanceY);
+
+
+                    while(playerHp != 0 || enemyHp != 0)
+                    {
+
+                        Random rnd = new Random();
+                        int dmg = rnd.Next(1, 4);
+                    }
+
+                    Console.SetCursorPosition(1, 1);
+                    Console.Write("next");
+                   
+                }
             }
         }
+    }
+
+        
+
+    public void PlayerMoveUp()
+    {
+
+        if (inCombat == false)
+        {
+            Console.SetCursorPosition(Player.PosX, Player.PosY);
+            Console.Write(' ');
+            Player.PosY--;
+            Player.Draw();
+
+            ShuffleRats();
+            ShuffleSnakes();
+           // TrackPlayerAndEnemiesPos();
+
+
+            for (int i = 0; i < _elements.Count; i++)
+            {
+
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                {
+                    Player.PosY = Player.PosY + 1;
+                }
+            }
+        } else
+        {
+            return;
+        }
+        
     }
     public void PlayerMoveDown()
     {
@@ -252,8 +310,8 @@ public void ShuffleRats()
 
         ShuffleRats();
         ShuffleSnakes();
-        
-            for (int i = 0; i < _elements.Count; i++)
+      //  TrackPlayerAndEnemiesPos();
+        for (int i = 0; i < _elements.Count; i++)
         {
 
             if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
@@ -271,8 +329,8 @@ public void ShuffleRats()
 
         ShuffleRats();
         ShuffleSnakes();
-        
-            for (int i = 0; i < _elements.Count; i++)
+       // TrackPlayerAndEnemiesPos();
+        for (int i = 0; i < _elements.Count; i++)
         {
 
             if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
@@ -291,7 +349,7 @@ public void ShuffleRats()
 
         ShuffleRats();
         ShuffleSnakes();
-        
+      //  TrackPlayerAndEnemiesPos();
         for (int i = 0; i < _elements.Count; i++)
         {
 
@@ -302,3 +360,4 @@ public void ShuffleRats()
         }
     }
 }
+
