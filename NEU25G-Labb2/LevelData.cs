@@ -2,19 +2,19 @@
 internal class LevelData
 {
     public Player Player { get; private set; }
-    
+
     private List<LevelElement> _elements = new List<LevelElement>();
     public List<LevelElement> Elements
-	{
-		get { return _elements; }
-		
-	}
-    
-    public void Load()
-	{
-       // Console.WriteLine("load");
+    {
+        get { return _elements; }
 
-       // var path = @"C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\\Level1.txt";
+    }
+
+    public void Load()
+    {
+        // Console.WriteLine("load");
+
+        // var path = @"C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\\Level1.txt";
 
         var pathHome = @"C:\Users\erikj\source\repos\NEU25G_Labb2\NEU25G-Labb2\bin\\Level1.txt";
 
@@ -22,15 +22,15 @@ internal class LevelData
         using (StreamReader reader = new StreamReader(pathHome))
         {
 
-          int row = 0;
-          string line;
+            int row = 0;
+            string line;
 
-            while ((line = reader.ReadLine()) != null) 
+            while ((line = reader.ReadLine()) != null)
             {
-              for (int i = 0; i < line.Length; i++)
+                for (int i = 0; i < line.Length; i++)
                 {
                     char currentChar = line[i];
-                   //Console.WriteLine($"Char '{currentChar}' at coords; ({row}, {i})");
+                    
                     if (currentChar == '#')
                     {
                         _elements.Add(new Wall(i, row));
@@ -47,7 +47,7 @@ internal class LevelData
                     {
                         Player = new Player(i, row);
                     }
-               }
+                }
                 row++;
             }
         }
@@ -57,11 +57,9 @@ internal class LevelData
     {
         var walls = new List<Wall>();
         var snakes = new List<Snake>();
+        var rats = new List<Rat>();
         Random rand = new Random();
 
-        
-
-        double hy;
 
         for (int i = 0; i < _elements.Count; i++)
         {
@@ -70,44 +68,100 @@ internal class LevelData
                 walls.Add((Wall)_elements[i]);
             }
 
+            if (_elements[i].Sign == 'r')
+            {
+                rats.Add((Rat)_elements[i]);
+            }
+
             if (_elements[i].Sign == 's')
             {
                 snakes.Add((Snake)_elements[i]);
             }
         }
 
-      
-        for (int i = 0; i < _elements.Count; i++)
+        for (int i = 0; i < snakes.Count; ++i)
         {
-            if (_elements[i].Sign == 's')
+            int distanceX = Player.PosX - snakes[i].PosX;
+            int distanceY = Player.PosY - snakes[i].PosY;
+
+           
+            if (Math.Abs(distanceX) <= 2 && Math.Abs(distanceY) <= 2)
             {
                
-                double playerPosY = Player.PosY, playerPosX = Player.PosX;
-                double snakePosY = _elements[i].PosY, snakePosX = _elements[i].PosX;
+                Console.SetCursorPosition(snakes[i].PosX, snakes[i].PosY);
+                Console.Write(' ');
 
-            
+                int currentDistance = Math.Abs(distanceX) + Math.Abs(distanceY);
 
-             
+                List<(int distanceX, int distanceY)> directions = new List<(int, int)>
+                {
+                    (0, -1), 
+                    (0, 1), 
+                    (-1, 0), 
+                    (1, 0)  
+                };
 
+                List<(int newX, int newY)> validMoves = new List<(int, int)>();
+
+                foreach (var dir in directions)
+                {
+                    int newX = snakes[i].PosX + dir.distanceX;
+                    int newY = snakes[i].PosY + dir.distanceY;
+
+                    int newDistance = Math.Abs(Player.PosX - newX) + Math.Abs(Player.PosY - newY);
+
+                    bool withinBounds;
+
+                    if (newX >= 0 && newX < Console.BufferWidth && newY >= 0 && newY < Console.BufferHeight)
+                    {
+                        withinBounds = true;
+                    }
+                    else
+                    {
+                        withinBounds = false;
+                    }
+
+                    bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
+
+                    bool hitsSnake = false;
+
+                    for (int j = 0; j < snakes.Count; ++j)
+                    {
+                        if (j != i && snakes[j].PosX == newX && snakes[j].PosY == newY)
+                        {
+                            hitsSnake = true;
+                            break;
+                        }
+                    }
+
+                    bool hitsRat = false;
+
+                    for (int j = 0; j < rats.Count; ++j)
+                    {
+                        if (j != i && rats[j].PosX == newX && rats[j].PosY == newY)
+                        {
+                            hitsRat = true;
+                            break;
+                        }
+                    }
+
+                    if (withinBounds && !hitsWall && !hitsSnake && !hitsRat && newDistance > currentDistance)
+                    {
+                        validMoves.Add((newX, newY));
+                    }
+                }
                 
-                    double deltaX = playerPosX - snakePosX;
-                    double deltaY = snakePosY - playerPosY;
-                double distance =  Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
-                  
-                Console.SetCursorPosition(1, 1);
-                Console.Write(distance);
-
+                if (validMoves.Count > 0)
+                {
+                    var move = validMoves[rand.Next(validMoves.Count)];
+                    snakes[i].PosX = move.newX;
+                    snakes[i].PosY = move.newY;
+                }
             }
         }
-      
-       
-    
 
     }
-
-    
-
-    public void ShuffleRats()
+public void ShuffleRats()
     {
         var walls = new List<Wall>();
         var rats = new List<Rat>();
@@ -170,7 +224,7 @@ internal class LevelData
         }
     }
 
-   public void PlayerMoveUp()
+    public void PlayerMoveUp()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
         Console.Write(' ');
@@ -179,25 +233,27 @@ internal class LevelData
 
         ShuffleRats();
         ShuffleSnakes();
-       for (int i = 0; i < _elements.Count; i++)
+        
+        for (int i = 0; i < _elements.Count; i++)
         {
 
-          if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
             {
                 Player.PosY = Player.PosY + 1;
             }
         }
     }
-public void PlayerMoveDown()
+    public void PlayerMoveDown()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
         Console.Write(' ');
         Player.PosY++;
         Player.Draw();
-        
+
         ShuffleRats();
+        ShuffleSnakes();
         
-        for (int i = 0; i < _elements.Count; i++)
+            for (int i = 0; i < _elements.Count; i++)
         {
 
             if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
@@ -205,7 +261,7 @@ public void PlayerMoveDown()
                 Player.PosY = Player.PosY - 1;
             }
         }
-}
+    }
     public void PlayerMoveLeft()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
@@ -214,8 +270,9 @@ public void PlayerMoveDown()
         Player.Draw();
 
         ShuffleRats();
+        ShuffleSnakes();
         
-        for (int i = 0; i < _elements.Count; i++)
+            for (int i = 0; i < _elements.Count; i++)
         {
 
             if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
@@ -233,7 +290,8 @@ public void PlayerMoveDown()
         Player.Draw();
 
         ShuffleRats();
-       
+        ShuffleSnakes();
+        
         for (int i = 0; i < _elements.Count; i++)
         {
 
@@ -244,4 +302,3 @@ public void PlayerMoveDown()
         }
     }
 }
-
