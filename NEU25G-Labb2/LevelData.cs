@@ -175,6 +175,8 @@ public void ShuffleRats()
      //   var rats = new List<Rat>();
         Random rand = new Random();
 
+        var rat = new Rat(0, 0);
+        rat.AttackDice.Throw();
         for (int i = 0; i < _elements.Count; i++)
         {
             if (_elements[i].Sign == '#')

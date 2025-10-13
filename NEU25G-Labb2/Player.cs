@@ -6,6 +6,7 @@
         SignColor = ConsoleColor.Green;
         PosX = x;
         PosY = y;
+        AttackDice = new Dice(2, 6, 1);
     }
 }
 

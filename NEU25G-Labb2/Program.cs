@@ -7,6 +7,7 @@ Player player = leveldata.Player;
 
 
 var rat = new Rat(0,0);
+rat.AttackDice.Throw();
 //foreach (var element in leveldata.Elements)
 //{
 //    element.Draw();

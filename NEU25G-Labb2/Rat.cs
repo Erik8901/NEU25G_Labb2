@@ -7,6 +7,7 @@
         SignColor = ConsoleColor.Magenta;
         PosX = x;
         PosY = y;
+        AttackDice = new Dice(2, 6, 1);
     }
     public void Update()
     {

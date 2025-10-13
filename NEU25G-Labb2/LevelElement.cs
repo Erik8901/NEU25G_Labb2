@@ -6,7 +6,10 @@ abstract class LevelElement
 
     public char Sign { get; set; }
 
-   public ConsoleColor SignColor { get; set; }
+    public Dice AttackDice { get; set; }
+    public Dice DefendDice { get; set; }
+
+    public ConsoleColor SignColor { get; set; }
 
     //public LevelElement(char sign, int x, int y)
     //{

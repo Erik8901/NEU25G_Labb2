@@ -23,11 +23,13 @@ public class Dice
         {
             total += random.Next(1, SidesPerDice + 1);
         }
-
+        //Console.SetCursorPosition(1, 1);
+        //Console.Write(total + Modifier);
         return total + Modifier;
     }
 
-   
+
+
     public override string ToString()
     {
         string mod = Modifier >= 0 ? $"+{Modifier}" : $"{Modifier}";

@@ -6,8 +6,10 @@
     public string Player { get; set; }
 
     public double Health { get; set; }
-    public int AttackDice { get; set; }
-    public int DefendDice { get; set; }
+    public Dice AttackDice { get; set; }
+    public Dice DefendDice { get; set; }
+
+   
 }
 
 // This example demonstrates the
