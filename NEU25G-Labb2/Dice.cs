@@ -23,8 +23,6 @@ public class Dice
         {
             total += random.Next(1, SidesPerDice + 1);
         }
-        //Console.SetCursorPosition(1, 1);
-        //Console.Write(total + Modifier);
         return total + Modifier;
     }
 

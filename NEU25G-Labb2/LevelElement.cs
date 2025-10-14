@@ -4,6 +4,7 @@ abstract class LevelElement
     public int PosX { get; set; }
     public int PosY { get; set; }
 
+    public int Health { get; set; }
     public char Sign { get; set; }
 
     public Dice AttackDice { get; set; }
@@ -20,14 +21,10 @@ abstract class LevelElement
     
     public void Draw()
     {
-
-        //Console.CursorVisible = false;
         Console.ForegroundColor = SignColor;
         Console.SetCursorPosition(PosX, PosY);
         Console.WriteLine(Sign);
         Console.ResetColor();
-
-
     }
 }
 

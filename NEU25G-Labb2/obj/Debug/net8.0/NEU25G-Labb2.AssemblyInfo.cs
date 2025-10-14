@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NEU25G-Labb2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efcaac447303e0fb58f22010907bb28774c19058")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c7231cefa989e7a08808d9eda4d6fb050509b3b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("NEU25G-Labb2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NEU25G-Labb2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,8 +4,10 @@ internal class LevelData
     public Player Player { get; private set; }
 
     private bool inCombat = false;
-   
+
     //Enemy Enemy = new Enemy(Rat);
+    Rat rat = new Rat(0, 0); // Only once!
+    public int playerHp = 100;
 
     private List<LevelElement> _elements = new List<LevelElement>();
     public List<LevelElement> Elements
@@ -13,12 +15,9 @@ internal class LevelData
         get { return _elements; }
 
     }
-
-    Dice Dice = new Dice(0,0,0);
-
     public void Load()
     {
-        // Console.WriteLine("load");
+        
 
         // var path = @"C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\\Level1.txt";
 
@@ -57,9 +56,10 @@ internal class LevelData
                 row++;
             }
         }
+        //Console.SetCursorPosition(60, 4);
+        //Console.Write($"Player Health is: {playerHp}");
     }
 
-   
 
     public void ShuffleSnakes()
     {
@@ -172,11 +172,9 @@ internal class LevelData
 public void ShuffleRats()
     {
         var walls = new List<Wall>();
-     //   var rats = new List<Rat>();
+        var rats = new List<Rat>();
         Random rand = new Random();
 
-        var rat = new Rat(0, 0);
-        rat.AttackDice.Throw();
         for (int i = 0; i < _elements.Count; i++)
         {
             if (_elements[i].Sign == '#')
@@ -184,10 +182,10 @@ public void ShuffleRats()
                 walls.Add((Wall)_elements[i]);
             }
 
-            //if (_elements[i].Sign == 'r')
-            //{
-            //    rats.Add((Rat)_elements[i]);
-            //}
+            if (_elements[i].Sign == 'r')
+            {
+                rats.Add((Rat)_elements[i]);
+            }
         }
 
         for (int i = 0; i < _elements.Count; i++)
@@ -230,79 +228,143 @@ public void ShuffleRats()
                     _elements[i].PosY = newY;
                 }
             }
-
-        }
+          }
     }
 
     public void TrackPlayerAndEnemiesPos()
     {
-        int playerHp = 30;
-        int enemyHp = 10;
        
+        var rats = new List<Rat>();
+
         for (int i = 0; i < _elements.Count; i++)
         {
-
-            if (_elements[i].Sign == 'r')
+           if (_elements[i].Sign == 'r')
             {
-
-                int distanceX = Player.PosX - _elements[i].PosX;
-                int distanceY = Player.PosY - _elements[i].PosY;
-                if ((Math.Abs(distanceX) <= 1 && Math.Abs(distanceY) <= 1) &&
-                    !(distanceX == 0 && distanceY == 0))
+                rats.Add((Rat)_elements[i]);
+                
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
                 {
-                    inCombat = true;
-                    //Console.SetCursorPosition(_elements[i].PosX, _elements[i].PosY);
-                    //Console.Write(' ');
 
-                    //  int currentDistance = Math.Abs(distanceX) + Math.Abs(distanceY);
+                    if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                       {
 
+                        Rat rat = _elements[i] as Rat;
+                        if (rat == null) return;
 
-                    while(playerHp != 0 || enemyHp != 0)
-                    {
+                        int playerAttackDmg = Player.AttackDice.Throw();
+                        int ratDefendDmg = rat.DefendDice.Throw();
 
-                        Random rnd = new Random();
-                        int dmg = rnd.Next(1, 4);
+                        if (playerAttackDmg > ratDefendDmg)
+                        {
+                            int ratDmgToTake = playerAttackDmg - ratDefendDmg;
+                            rat.Health -= ratDmgToTake;
+                            Console.SetCursorPosition(1, 3);
+                            Console.Write($"af: {rat.Health}  ");
+
+                           
+                            if (rat.Health <= 0)
+                            {
+                                int index = _elements.IndexOf(_elements[i]);
+                                _elements.RemoveAt(index);
+                                Console.SetCursorPosition(60, 6);
+                                Console.Write($"Enemy rat DEFEATED, Good Job!!");
+                            }
+                        }
+                        else
+                        {
+                             int playerDmgToTake = ratDefendDmg - playerAttackDmg;
+                             Player.Health -= playerDmgToTake;
+
+                            //Console.SetCursorPosition(1, 4);
+                            //Console.Write($"PH: {Player.Health}  ");
+                            if (Player.Health <= 0)
+                            {
+                                Console.SetCursorPosition(60, 7);
+                                Console.Write("You were defeated by the rats...");
+                                Player.SignColor = ConsoleColor.Black;
+                            }
+                        }
                     }
-
-                    Console.SetCursorPosition(1, 1);
-                    Console.Write("next");
-                   
                 }
             }
         }
     }
 
+    public void EnemiesWithinPlayerBounds()
+    {
+        for (int i = 0; i < _elements.Count; i++)
+        {
+            if (_elements[i].Sign == 'r')
+            {
+                int dx = _elements[i].PosX - Player.PosX;
+                int dy = _elements[i].PosY - Player.PosY;
+
+                double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                if (distance <= 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Magenta;
+                }
+                if (distance > 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Black;
+                }
+            }
+            if (_elements[i].Sign == 's')
+            {
+                int dx = _elements[i].PosX - Player.PosX;
+                int dy = _elements[i].PosY - Player.PosY;
+
+                double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                if (distance <= 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Blue;
+                }
+                if (distance > 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Black;
+                }
+            }
+        }
+    }
         
 
     public void PlayerMoveUp()
     {
+        Console.SetCursorPosition(Player.PosX, Player.PosY);
+        Console.Write(' ');
+        Player.PosY--;
+        Player.Draw();
 
-        if (inCombat == false)
-        {
-            Console.SetCursorPosition(Player.PosX, Player.PosY);
-            Console.Write(' ');
-            Player.PosY--;
-            Player.Draw();
-
-            ShuffleRats();
-            ShuffleSnakes();
-           // TrackPlayerAndEnemiesPos();
-
-
-            for (int i = 0; i < _elements.Count; i++)
+        ShuffleRats();
+        ShuffleSnakes();
+        TrackPlayerAndEnemiesPos();
+        EnemiesWithinPlayerBounds();
+        for (int i = 0; i < _elements.Count; i++)
             {
-
-                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                if (_elements[i].Sign == '#')
                 {
-                    Player.PosY = Player.PosY + 1;
+                    int dx = _elements[i].PosX - Player.PosX;
+                    int dy = _elements[i].PosY - Player.PosY;
+
+                    double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                    if (distance <= 5)
+                    {
+                        _elements[i].SignColor = ConsoleColor.Yellow;
+                    }
+                
+                    if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                    {
+                        Player.PosY = Player.PosY + 1;
+                    }
                 }
             }
-        } else
-        {
-            return;
-        }
-        
     }
+
+
+
     public void PlayerMoveDown()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
@@ -312,15 +374,29 @@ public void ShuffleRats()
 
         ShuffleRats();
         ShuffleSnakes();
-      //  TrackPlayerAndEnemiesPos();
+        TrackPlayerAndEnemiesPos();
+        EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
         {
-
-            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            if (_elements[i].Sign == '#')
             {
-                Player.PosY = Player.PosY - 1;
+                int dx = _elements[i].PosX - Player.PosX;
+                int dy = _elements[i].PosY - Player.PosY;
+
+                double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                if (distance <= 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Yellow;
+                }
+
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                {
+                    Player.PosY = Player.PosY - 1;
+                }
             }
         }
+
     }
     public void PlayerMoveLeft()
     {
@@ -328,18 +404,32 @@ public void ShuffleRats()
         Console.Write(' ');
         Player.PosX--;
         Player.Draw();
-
+        
         ShuffleRats();
         ShuffleSnakes();
-       // TrackPlayerAndEnemiesPos();
+        TrackPlayerAndEnemiesPos();
+        EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
         {
-
-            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            if (_elements[i].Sign == '#')
             {
-                Player.PosX = Player.PosX + 1;
+                int dx = _elements[i].PosX - Player.PosX;
+                int dy = _elements[i].PosY - Player.PosY;
+
+                double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                if (distance <= 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Yellow;
+                }
+
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                {
+                    Player.PosX = Player.PosX + 1;
+                }
             }
         }
+
     }
 
     public void PlayerMoveRight()
@@ -348,16 +438,29 @@ public void ShuffleRats()
         Console.Write(' ');
         Player.PosX++;
         Player.Draw();
-
+        
         ShuffleRats();
         ShuffleSnakes();
-      //  TrackPlayerAndEnemiesPos();
+        TrackPlayerAndEnemiesPos();
+        EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
         {
-
-            if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+            if (_elements[i].Sign == '#')
             {
-                Player.PosX = Player.PosX - 1;
+                int dx = _elements[i].PosX - Player.PosX;
+                int dy = _elements[i].PosY - Player.PosY;
+
+                double distance = Math.Sqrt(dx * dx + dy * dy);
+
+                if (distance <= 5)
+                {
+                    _elements[i].SignColor = ConsoleColor.Yellow;
+                }
+
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                {
+                    Player.PosX = Player.PosX - 1;
+                }
             }
         }
     }
