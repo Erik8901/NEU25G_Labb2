@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,24 +23,12 @@
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\source\\repos\\neu25g_labb2\\neu25g-labb2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "Enemy.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Enemy.cs",
               "RelativeToolTip": "Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T09:11:31.85Z",
               "IsPinned": true,
@@ -70,7 +70,7 @@
               "RelativeDocumentMoniker": "Snake.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Snake.cs",
               "RelativeToolTip": "Snake.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T12:15:35.243Z",
               "IsPinned": true,
@@ -86,18 +86,17 @@
               "RelativeToolTip": "Wall.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T12:07:49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T12:07:49Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "LevelElement.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\LevelElement.cs",
               "RelativeDocumentMoniker": "LevelElement.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\LevelElement.cs",
               "RelativeToolTip": "LevelElement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T16:48:24.629Z",
               "EditorCaption": ""
@@ -110,59 +109,59 @@
               "RelativeDocumentMoniker": "Dice.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Dice.cs",
               "RelativeToolTip": "Dice.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAABkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-12T12:52:16.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Rat.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
               "RelativeDocumentMoniker": "Rat.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
               "RelativeToolTip": "Rat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T12:15:47.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "LevelData.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\LevelData.cs",
               "RelativeDocumentMoniker": "LevelData.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\LevelData.cs",
               "RelativeToolTip": "LevelData.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAAOkAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T11:22:44.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Player.cs",
               "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-08T10:57:20.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\erikj\\source\\repos\\NEU25G_Labb2\\NEU25G-Labb2\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T07:31:30.475Z",
               "EditorCaption": ""

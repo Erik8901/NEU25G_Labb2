@@ -14,12 +14,16 @@ Player player = leveldata.Player;
 //    leveldata.Elements[2].SignColor = ConsoleColor.Green;
 //}
 string startGameText = "Game Started! GLHF!!";
+string IntroText = "Find and defeat the rats and snakes!";
+
 ConsoleKey key;
 
 do
 {
     Console.SetCursorPosition(60,0);
     Console.Write(startGameText);
+    Console.SetCursorPosition(60, 1);
+    Console.Write(IntroText);
 
     Console.CursorVisible = false;
     

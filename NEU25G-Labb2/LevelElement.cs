@@ -11,14 +11,6 @@ abstract class LevelElement
     public Dice DefendDice { get; set; }
 
     public ConsoleColor SignColor { get; set; }
-
-    //public LevelElement(char sign, int x, int y)
-    //{
-    //    Sign = sign;
-    //    PosX = x; 
-    //    PosY = y;
-    //}
-    
     public void Draw()
     {
         Console.ForegroundColor = SignColor;
