@@ -317,7 +317,7 @@ internal class LevelData
 
                 if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
                 {
-                    Rat rat = (Rat)_elements[i]; // ✅ Get the specific rat
+                    Rat rat = (Rat)_elements[i];
                     PlayerAttacksRat(rat, i);
                 }
             }
@@ -329,10 +329,10 @@ internal class LevelData
         {
             if (_elements[i].Sign == 'r')
             {
-                int dx = _elements[i].PosX - Player.PosX;
-                int dy = _elements[i].PosY - Player.PosY;
+                int distanceX = _elements[i].PosX - Player.PosX;
+                int distanceY = _elements[i].PosY - Player.PosY;
 
-                double distance = Math.Sqrt(dx * dx + dy * dy);
+                double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                 if (distance <= 5)
                 {
@@ -345,10 +345,10 @@ internal class LevelData
             }
             if (_elements[i].Sign == 's')
             {
-                int dx = _elements[i].PosX - Player.PosX;
-                int dy = _elements[i].PosY - Player.PosY;
+                int distanceX = _elements[i].PosX - Player.PosX;
+                int distanceY = _elements[i].PosY - Player.PosY;
 
-                double distance = Math.Sqrt(dx * dx + dy * dy);
+                double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                 if (distance <= 5)
                 {
@@ -377,10 +377,10 @@ internal class LevelData
             {
                 if (_elements[i].Sign == '#')
                 {
-                    int dx = _elements[i].PosX - Player.PosX;
-                    int dy = _elements[i].PosY - Player.PosY;
+                    int distanceX = _elements[i].PosX - Player.PosX;
+                    int distanceY = _elements[i].PosY - Player.PosY;
 
-                    double distance = Math.Sqrt(dx * dx + dy * dy);
+                    double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                     if (distance <= 5)
                     {
@@ -410,10 +410,10 @@ internal class LevelData
         {
             if (_elements[i].Sign == '#')
             {
-                int dx = _elements[i].PosX - Player.PosX;
-                int dy = _elements[i].PosY - Player.PosY;
+                int distanceX = _elements[i].PosX - Player.PosX;
+                int distanceY = _elements[i].PosY - Player.PosY;
 
-                double distance = Math.Sqrt(dx * dx + dy * dy);
+                double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                 if (distance <= 5)
                 {
@@ -444,10 +444,10 @@ internal class LevelData
         {
             if (_elements[i].Sign == '#')
             {
-                int dx = _elements[i].PosX - Player.PosX;
-                int dy = _elements[i].PosY - Player.PosY;
+                int distanceX = _elements[i].PosX - Player.PosX;
+                int distanceY = _elements[i].PosY - Player.PosY;
 
-                double distance = Math.Sqrt(dx * dx + dy * dy);
+                double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                 if (distance <= 5)
                 {
@@ -477,10 +477,10 @@ internal class LevelData
         {
             if (_elements[i].Sign == '#')
             {
-                int dx = _elements[i].PosX - Player.PosX;
-                int dy = _elements[i].PosY - Player.PosY;
+                int distanceX = _elements[i].PosX - Player.PosX; 
+                int distanceY = _elements[i].PosY - Player.PosY;
 
-                double distance = Math.Sqrt(dx * dx + dy * dy);
+                double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
 
                 if (distance <= 5)
                 {
