@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 
 public class Dice
 {
@@ -25,8 +25,6 @@ public class Dice
         }
         return total + Modifier;
     }
-
-
 
     public override string ToString()
     {

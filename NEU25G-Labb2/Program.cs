@@ -5,24 +5,16 @@ leveldata.Load();
 
 Player player = leveldata.Player;
 
-
-//var rat = new Rat(0,0);
-//rat.AttackDice.Throw();
-//foreach (var element in leveldata.Elements)
-//{
-//    element.Draw();
-//    leveldata.Elements[2].SignColor = ConsoleColor.Green;
-//}
 string startGameText = "Game Started! GLHF!!";
-string IntroText = "Find and defeat the rats and snakes!";
+string IntroText = "Find and defeat the rats and chase away the snakes!";
 
 ConsoleKey key;
 
 do
 {
-    Console.SetCursorPosition(60,0);
+    Console.SetCursorPosition(60,1);
     Console.Write(startGameText);
-    Console.SetCursorPosition(60, 1);
+    Console.SetCursorPosition(60, 3);
     Console.Write(IntroText);
 
     Console.CursorVisible = false;

@@ -3,12 +3,7 @@ internal class LevelData
 {
     public Player Player { get; private set; }
 
-    private bool inCombat = false;
-
-    //Enemy Enemy = new Enemy(Rat);
-    Rat rat = new Rat(0, 0); 
-    Snake snake = new Snake(0, 0);
-    public int playerHp = 100;
+    private bool ratAttacksPlayer = false;
 
     private List<LevelElement> _elements = new List<LevelElement>();
     public List<LevelElement> Elements
@@ -19,11 +14,7 @@ internal class LevelData
     public void Load()
     {
 
-
-        // var path = @"C:\Users\erikj\Desktop\NEU25G-Labb2\NEU25G-Labb2\NEU25G-Labb2\bin\\Level1.txt";
-
         var path = "Levels/Level1.txt";
-
 
         using (StreamReader reader = new StreamReader(path))
         {
@@ -57,11 +48,7 @@ internal class LevelData
                 row++;
             }
         }
-        Console.SetCursorPosition(60, 4);
-        Console.Write($"Player Health: {Player.Health}  ");
-    }
-
-
+     }
     public void ShuffleSnakes()
     {
         var walls = new List<Wall>();
@@ -170,13 +157,13 @@ internal class LevelData
         }
 
     }
-public void ShuffleRats()
+    public void ShuffleRats()
     {
         var walls = new List<Wall>();
         var rats = new List<Rat>();
         Random rand = new Random();
 
-        for (int i = 0; i < _elements.Count; i++)
+        for (int i = _elements.Count - 1; i >= 0; i--)
         {
             if (_elements[i].Sign == '#')
             {
@@ -191,7 +178,6 @@ public void ShuffleRats()
 
         for (int i = 0; i < _elements.Count; i++)
         {
-
             if (_elements[i].Sign == 'r')
             {
                 Console.SetCursorPosition(_elements[i].PosX, _elements[i].PosY);
@@ -210,16 +196,8 @@ public void ShuffleRats()
                     case 3: newX += 1; break;
                 }
 
-                bool withinBounds;
-
-                if (newX >= 0 && newX < Console.BufferWidth && newY >= 0 && newY < Console.BufferHeight)
-                {
-                    withinBounds = true;
-                }
-                else
-                {
-                    withinBounds = false;
-                }
+                bool withinBounds = newX >= 0 && newX < Console.BufferWidth &&
+                                    newY >= 0 && newY < Console.BufferHeight;
 
                 bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
 
@@ -228,129 +206,123 @@ public void ShuffleRats()
                     _elements[i].PosX = newX;
                     _elements[i].PosY = newY;
                 }
-            }
-          }
-    }
 
-    public void TrackPlayerAndEnemiesPos()
-    {
-       
-        var rats = new List<Rat>();
-        var snakes = new List<Snake>();
-
-        for (int i = 0; i < _elements.Count; i++)
-        {
-           if (_elements[i].Sign == 'r')
-            {
-                rats.Add((Rat)_elements[i]);
-                
-                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                if (newX == Player.PosX && newY == Player.PosY)
                 {
+                    ratAttacksPlayer = true;
 
-                    if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
-                       {
-                       
-                        Rat rat = _elements[i] as Rat;
-                        if (rat == null) return;
-
-                        int playerAttackDmg = Player.AttackDice.Throw();
-                        Console.SetCursorPosition(60, 10);
-                        Console.Write(Player.AttackDice.ToString());
-                        int ratDefendDmg = rat.DefendDice.Throw();
-                        Console.SetCursorPosition(60, 11);
-                        Console.Write(rat.AttackDice.ToString());
-
-                        if (playerAttackDmg > ratDefendDmg)
-                        {
-                            int ratDmgToTake = playerAttackDmg - ratDefendDmg;
-                            rat.Health -= ratDmgToTake;
-                            Console.SetCursorPosition(60, 5);
-                            Console.Write($"Enemy rat Health {rat.Health}");
-                           
-                            if (rat.Health <= 0)
-                            {
-                                rat.Health = 0;
-                                int index = _elements.IndexOf(_elements[i]);
-                                _elements.RemoveAt(index);
-                                Console.SetCursorPosition(60, 6);
-                                Console.Write($"Enemy rat DEFEATED, Good Job!!");
-                                Thread.Sleep(1000);
-                                Console.SetCursorPosition(60, 6);
-                                Console.Write(new string(' ', "Enemy rat DEFEATED, Good Job!!".Length));
-                            }
-                         }
-                        else
-                        {
-                            int playerDmgToTake = ratDefendDmg - playerAttackDmg;
-                            Player.Health -= playerDmgToTake;
-
-                            Console.SetCursorPosition(60, 4);
-                            Console.Write($"Player Health: {Player.Health}  ");
-                            if (Player.Health <= 0)
-                            {
-                                Console.SetCursorPosition(60, 7);
-                                Console.Write("You were defeated by the rats...");
-                                Player.SignColor = ConsoleColor.Black;
-                            }
-                        }
-                    }
-                }
-            }
-           
-            if (_elements[i].Sign == 's')
-            {
-                snakes.Add((Snake)_elements[i]);
-
-                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
-                {
-
-                    if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                    Rat rat = _elements[i] as Rat;
+                    if (rat != null)
                     {
-
-                        Snake snake = _elements[i] as Snake;
-                        if (snake == null) return;
-
-                        int playerAttackDmg = Player.AttackDice.Throw();
-                        int ratDefendDmg = snake.DefendDice.Throw();
-
-                        if (playerAttackDmg > ratDefendDmg)
-                        {
-                            int ratDmgToTake = playerAttackDmg - ratDefendDmg;
-                            snake.Health -= ratDmgToTake;
-                            Console.SetCursorPosition(1, 3);
-                            Console.Write($"af: {rat.Health}  ");
-
-
-                            if (snake.Health <= 0)
-                            {
-                                int index = _elements.IndexOf(_elements[i]);
-                                _elements.RemoveAt(index);
-                                Console.SetCursorPosition(60, 6);
-                                Console.Write($"Enemy Snake DEFEATED, Good Job!!");
-
-                              
-                            }
-                        }
-                        else
-                        {
-                            int playerDmgToTake = ratDefendDmg - playerAttackDmg;
-                            Player.Health -= playerDmgToTake;
-
-                            //Console.SetCursorPosition(1, 4);
-                            //Console.Write($"PH: {Player.Health}  ");
-                            if (Player.Health <= 0)
-                            {
-                                Console.SetCursorPosition(60, 7);
-                                Console.Write("You were defeated by the rats...");
-                                Player.SignColor = ConsoleColor.Black;
-                            }
-                        }
+                        RatAttacksPlayer(rat, i);
                     }
+
+                    ratAttacksPlayer = false; 
                 }
             }
         }
     }
 
+
+    private void PlayerAttacksRat(Rat rat, int index)
+    {
+        List<int> ratsToRemove = new List<int>();
+
+        int playerAttackDmg = Player.AttackDice.Throw();
+        Console.SetCursorPosition(60, 14);
+        Console.Write($"Player attacks with {playerAttackDmg}");
+        
+        int ratDefendDmg = rat.DefendDice.Throw();
+        Console.SetCursorPosition(60, 15);
+        Console.Write($"Rat Defends with {ratDefendDmg}");
+
+        if (ratAttacksPlayer == false)
+        {
+           
+            if (playerAttackDmg > ratDefendDmg)
+            {
+                int ratDmgToTake = playerAttackDmg - ratDefendDmg;
+                rat.Health -= ratDmgToTake;
+
+                Console.SetCursorPosition(60, 7);
+                Console.Write($"Player Health: {Player.Health}  ");
+
+                Console.SetCursorPosition(60, 9);
+                Console.Write($"Rat Health:  {rat.Health}   "); 
+
+                if (rat.Health <= 0)
+                {
+                    rat.Health = 0;
+                    _elements.RemoveAt(index);
+                    Console.SetCursorPosition(60, 6);
+                    Console.Write("Enemy rat DEFEATED, Good Job!!");
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(60, 6);
+                    Console.Write(new string(' ', "Enemy rat DEFEATED, Good Job!!".Length));
+                    return;
+                }
+                else
+                {
+                    RatAttacksPlayer(rat, index);
+                }
+            }
+        }
+    }
+
+    private void RatAttacksPlayer(Rat rat, int index)
+    {
+        int ratAttackDmg = rat.AttackDice.Throw();
+        Console.SetCursorPosition(60, 17);
+        Console.Write($"Rat attacks with {ratAttackDmg}");
+        
+        int playerDefendDmg = Player.DefendDice.Throw();
+        Console.SetCursorPosition(60, 18);
+        Console.Write($"Player defends with {playerDefendDmg}");
+
+        if (ratAttackDmg > playerDefendDmg)
+        {
+            int playerDmgToTake = ratAttackDmg - playerDefendDmg;
+            Player.Health -= playerDmgToTake;
+
+            Console.SetCursorPosition(60, 7);
+            Console.Write($"Player Health: {Player.Health}  ");
+            
+            Console.SetCursorPosition(60, 9);
+            Console.Write($"Rat Health:  {rat.Health}");
+
+           if (Player.Health <= 0)
+            {
+                Console.SetCursorPosition(60, 10);
+                Console.Write("You were defeated by the rats...");
+                Player.SignColor = ConsoleColor.Black;
+            }
+            else
+            {
+                PlayerAttacksRat(rat, index); 
+            }
+        }
+    }
+
+
+    public void TrackPlayerAndEnemiesPos()
+    {
+        var rats = new List<Rat>();
+        var snakes = new List<Snake>();
+
+        for (int i = 0; i < _elements.Count; i++)
+        {
+            if (_elements[i].Sign == 'r')
+            {
+                rats.Add((Rat)_elements[i]);
+
+                if (_elements[i].PosY == Player.PosY && _elements[i].PosX == Player.PosX)
+                {
+                    Rat rat = (Rat)_elements[i]; // ✅ Get the specific rat
+                    PlayerAttacksRat(rat, i);
+                }
+            }
+        }
+    }
     public void EnemiesWithinPlayerBounds()
     {
         for (int i = 0; i < _elements.Count; i++)
@@ -389,8 +361,6 @@ public void ShuffleRats()
             }
         }
     }
-        
-
     public void PlayerMoveUp()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
@@ -401,6 +371,7 @@ public void ShuffleRats()
         ShuffleRats();
         ShuffleSnakes();
         TrackPlayerAndEnemiesPos();
+
         EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
             {
@@ -423,9 +394,6 @@ public void ShuffleRats()
                 }
             }
     }
-
-
-
     public void PlayerMoveDown()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
@@ -436,6 +404,7 @@ public void ShuffleRats()
         ShuffleRats();
         ShuffleSnakes();
         TrackPlayerAndEnemiesPos();
+
         EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
         {
@@ -469,6 +438,7 @@ public void ShuffleRats()
         ShuffleRats();
         ShuffleSnakes();
         TrackPlayerAndEnemiesPos();
+
         EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)
         {
@@ -492,7 +462,6 @@ public void ShuffleRats()
         }
 
     }
-
     public void PlayerMoveRight()
     {
         Console.SetCursorPosition(Player.PosX, Player.PosY);
@@ -526,4 +495,3 @@ public void ShuffleRats()
         }
     }
 }
-
