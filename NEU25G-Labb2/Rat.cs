@@ -4,7 +4,7 @@
     public int Health
     {
         get => _health;
-        set => _health = Math.Min(value, 10); // Cap at 10
+        set => _health = Math.Min(value, 10); 
     }
     public Rat(int x, int y)
     {
