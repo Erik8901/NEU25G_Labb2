@@ -49,113 +49,17 @@ internal class LevelData
             }
         }
      }
-    public void ShuffleSnakes()
+   
+
+    public void UpdateEnemies()
     {
-        var walls = new List<Wall>();
-        var snakes = new List<Snake>();
-        var rats = new List<Rat>();
-        Random rand = new Random();
+        var walls = _elements.OfType<Wall>().ToList();
+        var enemies = _elements.OfType<Enemy>().ToList();
 
-
-        for (int i = 0; i < _elements.Count; i++)
+        foreach (var enemy in enemies)
         {
-            if (_elements[i].Sign == '#')
-            {
-                walls.Add((Wall)_elements[i]);
-            }
-
-            if (_elements[i].Sign == 'r')
-            {
-                rats.Add((Rat)_elements[i]);
-            }
-
-            if (_elements[i].Sign == 's')
-            {
-                snakes.Add((Snake)_elements[i]);
-            }
+            enemy.Update(walls, enemies, Player, _elements);
         }
-
-        for (int i = 0; i < snakes.Count; ++i)
-        {
-            int distanceX = Player.PosX - snakes[i].PosX;
-            int distanceY = Player.PosY - snakes[i].PosY;
-
-           
-            if (Math.Abs(distanceX) <= 2 && Math.Abs(distanceY) <= 2)
-            {
-               
-                Console.SetCursorPosition(snakes[i].PosX, snakes[i].PosY);
-                Console.Write(' ');
-
-                int currentDistance = Math.Abs(distanceX) + Math.Abs(distanceY);
-
-                List<(int distanceX, int distanceY)> directions = new List<(int, int)>
-                {
-                    (0, -1), 
-                    (0, 1), 
-                    (-1, 0), 
-                    (1, 0)  
-                };
-
-                List<(int newX, int newY)> validMoves = new List<(int, int)>();
-
-                foreach (var dir in directions)
-                {
-                    int newX = snakes[i].PosX + dir.distanceX;
-                    int newY = snakes[i].PosY + dir.distanceY;
-
-                    int newDistance = Math.Abs(Player.PosX - newX) + Math.Abs(Player.PosY - newY);
-
-                    bool withinBounds;
-
-                    if (newX >= 0 && newX < Console.BufferWidth && newY >= 0 && newY < Console.BufferHeight)
-                    {
-                        withinBounds = true;
-                    }
-                    else
-                    {
-                        withinBounds = false;
-                    }
-
-                    bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
-
-                    bool hitsSnake = false;
-
-                    for (int j = 0; j < snakes.Count; ++j)
-                    {
-                        if (j != i && snakes[j].PosX == newX && snakes[j].PosY == newY)
-                        {
-                            hitsSnake = true;
-                            break;
-                        }
-                    }
-
-                    bool hitsRat = false;
-
-                    for (int j = 0; j < rats.Count; ++j)
-                    {
-                        if (j != i && rats[j].PosX == newX && rats[j].PosY == newY)
-                        {
-                            hitsRat = true;
-                            break;
-                        }
-                    }
-
-                    if (withinBounds && !hitsWall && !hitsSnake && !hitsRat && newDistance > currentDistance)
-                    {
-                        validMoves.Add((newX, newY));
-                    }
-                }
-                
-                if (validMoves.Count > 0)
-                {
-                    var move = validMoves[rand.Next(validMoves.Count)];
-                    snakes[i].PosX = move.newX;
-                    snakes[i].PosY = move.newY;
-                }
-            }
-        }
-
     }
     public void ShuffleRats()
     {
@@ -369,7 +273,7 @@ internal class LevelData
         Player.Draw();
 
         ShuffleRats();
-        ShuffleSnakes();
+        UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
         EnemiesWithinPlayerBounds();
@@ -402,7 +306,7 @@ internal class LevelData
         Player.Draw();
 
         ShuffleRats();
-        ShuffleSnakes();
+        UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
         EnemiesWithinPlayerBounds();
@@ -436,7 +340,7 @@ internal class LevelData
         Player.Draw();
         
         ShuffleRats();
-        ShuffleSnakes();
+        UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
         EnemiesWithinPlayerBounds();
@@ -470,7 +374,7 @@ internal class LevelData
         Player.Draw();
         
         ShuffleRats();
-        ShuffleSnakes();
+        UpdateEnemies();
         TrackPlayerAndEnemiesPos();
         EnemiesWithinPlayerBounds();
         for (int i = 0; i < _elements.Count; i++)

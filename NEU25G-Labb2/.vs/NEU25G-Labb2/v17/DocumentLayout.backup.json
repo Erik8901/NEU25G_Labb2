@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:leveldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\wall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:wall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:rat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:levelelement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:snake.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:dice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|c:\\users\\erikj\\desktop\\neu25g_labb2\\neu25g-labb2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCBED640-3C99-0339-817B-88B680905F2B}|NEU25G-Labb2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,57 +46,57 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Enemy.cs",
-              "RelativeDocumentMoniker": "Enemy.cs",
-              "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Enemy.cs",
-              "RelativeToolTip": "Enemy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T09:11:31.85Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Snake.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Snake.cs",
               "RelativeDocumentMoniker": "Snake.cs",
               "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Snake.cs",
               "RelativeToolTip": "Snake.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAIAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAADQAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T12:15:35.243Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Wall.cs",
-              "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Wall.cs",
-              "RelativeDocumentMoniker": "Wall.cs",
-              "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Wall.cs",
-              "RelativeToolTip": "Wall.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Rat.cs",
+              "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
+              "RelativeDocumentMoniker": "Rat.cs",
+              "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
+              "RelativeToolTip": "Rat.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABYAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T12:07:49Z"
+              "WhenOpened": "2025-10-03T12:15:47.348Z",
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Enemy.cs",
+              "RelativeDocumentMoniker": "Enemy.cs",
+              "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Enemy.cs",
+              "RelativeToolTip": "Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T09:11:31.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "LevelElement.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\LevelElement.cs",
               "RelativeDocumentMoniker": "LevelElement.cs",
               "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\LevelElement.cs",
               "RelativeToolTip": "LevelElement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T16:48:24.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "Dice.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Dice.cs",
               "RelativeDocumentMoniker": "Dice.cs",
@@ -113,50 +109,37 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Rat.cs",
-              "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
-              "RelativeDocumentMoniker": "Rat.cs",
-              "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Rat.cs",
-              "RelativeToolTip": "Rat.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAiwAYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T12:15:47.348Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "LevelData.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\LevelData.cs",
               "RelativeDocumentMoniker": "LevelData.cs",
               "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\LevelData.cs",
               "RelativeToolTip": "LevelData.cs",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAAKkAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAFIAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T11:22:44.229Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
               "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Player.cs",
               "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-08T10:57:20.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\erikj\\Desktop\\NEU25G_Labb2\\NEU25G-Labb2\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-03T07:31:30.475Z"
             }

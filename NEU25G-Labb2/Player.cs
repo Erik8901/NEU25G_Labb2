@@ -1,5 +1,9 @@
 ﻿class Player : LevelElement
 {
+    public Dice AttackDice { get; set; }
+    public Dice DefendDice { get; set; }
+
+    public int Health { get; set; }
     public Player(int x, int y)
     {
         Sign = '@';
