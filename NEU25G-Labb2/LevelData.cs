@@ -61,73 +61,6 @@ internal class LevelData
             enemy.Update(walls, enemies, Player, _elements);
         }
     }
-    public void ShuffleRats()
-    {
-        var walls = new List<Wall>();
-        var rats = new List<Rat>();
-        Random rand = new Random();
-
-        for (int i = _elements.Count - 1; i >= 0; i--)
-        {
-            if (_elements[i].Sign == '#')
-            {
-                walls.Add((Wall)_elements[i]);
-            }
-
-            if (_elements[i].Sign == 'r')
-            {
-                rats.Add((Rat)_elements[i]);
-            }
-        }
-
-        for (int i = 0; i < _elements.Count; i++)
-        {
-            if (_elements[i].Sign == 'r')
-            {
-                Console.SetCursorPosition(_elements[i].PosX, _elements[i].PosY);
-                Console.Write(' ');
-
-                int direction = rand.Next(4);
-
-                int newX = _elements[i].PosX;
-                int newY = _elements[i].PosY;
-
-                switch (direction)
-                {
-                    case 0: newY -= 1; break;
-                    case 1: newY += 1; break;
-                    case 2: newX -= 1; break;
-                    case 3: newX += 1; break;
-                }
-
-                bool withinBounds = newX >= 0 && newX < Console.BufferWidth &&
-                                    newY >= 0 && newY < Console.BufferHeight;
-
-                bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
-
-                if (withinBounds && !hitsWall)
-                {
-                    _elements[i].PosX = newX;
-                    _elements[i].PosY = newY;
-                }
-
-                if (newX == Player.PosX && newY == Player.PosY)
-                {
-                    ratAttacksPlayer = true;
-
-                    Rat rat = _elements[i] as Rat;
-                    if (rat != null)
-                    {
-                        RatAttacksPlayer(rat, i);
-                    }
-
-                    ratAttacksPlayer = false; 
-                }
-            }
-        }
-    }
-
-
     private void PlayerAttacksRat(Rat rat, int index)
     {
         List<int> ratsToRemove = new List<int>();
@@ -272,7 +205,6 @@ internal class LevelData
         Player.PosY--;
         Player.Draw();
 
-        ShuffleRats();
         UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
@@ -305,7 +237,6 @@ internal class LevelData
         Player.PosY++;
         Player.Draw();
 
-        ShuffleRats();
         UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
@@ -339,7 +270,6 @@ internal class LevelData
         Player.PosX--;
         Player.Draw();
         
-        ShuffleRats();
         UpdateEnemies();
         TrackPlayerAndEnemiesPos();
 
@@ -373,7 +303,6 @@ internal class LevelData
         Player.PosX++;
         Player.Draw();
         
-        ShuffleRats();
         UpdateEnemies();
         TrackPlayerAndEnemiesPos();
         EnemiesWithinPlayerBounds();

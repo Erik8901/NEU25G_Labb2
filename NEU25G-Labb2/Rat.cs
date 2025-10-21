@@ -2,12 +2,12 @@
 {
     public Dice AttackDice { get; set; }
     public Dice DefendDice { get; set; }
-    
+
     private int _health;
     public int Health
     {
         get => _health;
-        set => _health = Math.Min(value, 10); 
+        set => _health = Math.Min(value, 10);
     }
     public Rat(int x, int y)
     {
@@ -20,43 +20,54 @@
         Health = 10;
     }
 
-    //Random rand = new Random();
+    private Random rand = new Random();
     public override void Update(List<Wall> walls, List<Enemy> allEnemies, Player player, List<LevelElement> _elements)
     {
+      
+        Console.SetCursorPosition(PosX, PosY);
+        Console.Write(' ');
 
-        //for (int i = 0; i < _elements.Count; i++)
-        //{
-        //    if (_elements[i].Sign == 'r')
-        //    {
-        //        Console.SetCursorPosition(_elements[i].PosX, _elements[i].PosY);
-        //        Console.Write(' ');
+      
+        var directions = new List<(int dx, int dy)>
+    {
+        (0, -1), 
+        (0, 1),  
+        (-1, 0), 
+        (1, 0)   
+    };
 
-        //        int direction = rand.Next(4);
+        var validMoves = new List<(int x, int y)>();
 
-        //        int newX = _elements[i].PosX;
-        //        int newY = _elements[i].PosY;
+        foreach (var (dx, dy) in directions)
+        {
+            int newX = PosX + dx;
+            int newY = PosY + dy;
 
-        //        switch (direction)
-        //        {
-        //            case 0: newY -= 1; break;
-        //            case 1: newY += 1; break;
-        //            case 2: newX -= 1; break;
-        //            case 3: newX += 1; break;
-        //        }
+          
+            bool withinBounds = newX >= 0 && newX < Console.BufferWidth &&
+                                newY >= 0 && newY < Console.BufferHeight;
 
-        //        bool withinBounds = newX >= 0 && newX < Console.BufferWidth &&
-        //                            newY >= 0 && newY < Console.BufferHeight;
+           
+            bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
+            bool hitsOtherEnemy = allEnemies.Any(e => e != this && e.PosX == newX && e.PosY == newY);
 
-        //        bool hitsWall = walls.Any(w => w.PosX == newX && w.PosY == newY);
+            if (withinBounds && !hitsWall && !hitsOtherEnemy)
+            {
+                validMoves.Add((newX, newY));
+            }
+        }
 
-        //        if (withinBounds && !hitsWall)
-        //        {
-        //            _elements[i].PosX = newX;
-        //            _elements[i].PosY = newY;
-        //        }
+       
+        if (validMoves.Count > 0)
+        {
+            var move = validMoves[rand.Next(validMoves.Count)];
+            PosX = move.x;
+            PosY = move.y;
+        }
 
-                
-        //    }
-        //}
+       
+        Console.SetCursorPosition(PosX, PosY);
+      // Console.Write('r'); 
     }
+
 }
